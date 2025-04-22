@@ -53,7 +53,7 @@ class PelangganController extends Controller
         if ($request->ajax() || $request->wantsJson()) {
             $rules = [
                 'nama' => 'required|string|min:3|max:100',
-                'email' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255',
                 'no_hp' => 'required|string|digits_between:10,15',
             ];
 
@@ -107,8 +107,8 @@ class PelangganController extends Controller
         if ($request->ajax() || $request->wantsJson()) {
             $rules = [
                 'nama' => 'required|string|min:3|max:100',
-                'email' => 'required|string|max:255',
-                'no_hp' => 'required|string|max:20',
+                'email' => 'required|string|email|max:255',
+                'no_hp' => 'required|string|digits_between:10,15',
             ];
 
             $validator = Validator::make($request->all(), $rules);
